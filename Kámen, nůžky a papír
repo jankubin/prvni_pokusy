@@ -1,0 +1,50 @@
+import random
+Kamen = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+Papir = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+Nuzky = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+#Write your code below this line 👇
+game_images = [Kamen, Papir, Nuzky]
+user_choice = int(input("Jaká je tvoje volba? Pokud kámen vlož 0, pokud papír vlož 1, pokud nůžky vlož 2.\n"))
+if user_choice >= 3 or user_choice < 0:
+  print("Zvolil jsi nesprávné číslo, prohrál jsi!")
+else:
+  print(game_images[user_choice])
+
+  computer_choice = random.randint(0, 2)
+  print("Volba počítače:")
+  print(game_images[computer_choice])
+
+  if user_choice == 0 and computer_choice == 2:
+    print("Vyhrál jsi!")
+  elif computer_choice == 0 and user_choice == 2:
+    print("Prohrál jsi.")
+  elif computer_choice > user_choice:
+    print("Prohrál jsi.")
+  elif user_choice > computer_choice:
+    print("Vyhrál jsi!")
+  elif computer_choice == user_choice:
+    print("Remíza.")
